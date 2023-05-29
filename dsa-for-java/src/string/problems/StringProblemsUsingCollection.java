@@ -1,6 +1,4 @@
-package strings;
-
-import java.util.*;
+package string.problems;
 
 public class StringProblemsUsingCollection {
 

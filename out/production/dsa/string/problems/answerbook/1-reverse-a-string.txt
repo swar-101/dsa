@@ -1,0 +1,128 @@
+1. Reverse a string:
+
+	Given a string A, you are asked to reverse the string
+	and return the reversed string.
+	
+	Problem constraints: 
+	
+		-	1 <= |A| <= 10^5
+		-	String A only consist of lowercase characters.
+	
+	Input format:
+	
+		- First and only argument is A.
+
+
+	Output format:
+		- Return a string denoting the reversed string.
+	
+	
+---------------------------------------------------------------------------
+
+	Example input:
+	
+		0 1 2 3 4 5 6
+		| | | | | | |
+		
+		p a n t h e r
+
+	Example output:
+	
+		r e h t n a p
+
+
+---------------------------------------------------------------------------
+Brute Force Solution: For all elements swap the first with the last one, 
+					  second with the second last and so on
+
+
+---------------------------------------------------------------------------
+Dry Run:
+
+	i = 0	swap 0 with 6  r a n t h e p 
+	i = 1   swap 1 with 5  r e n t h a p 
+	i = 2   swap 2 with 4  r e h t n a p
+	
+	when 'i' is less than the last value,
+	the String gets reversed.
+	
+	We essentially iterate over half of the string to get this.
+	
+	There are at most n/2 iterations, so worst case time complexity will 
+	be O(N).
+
+	Let's check compute worst case space complexity by writing the pseudo code...
+
+	
+---------------------------------------------------------------------------
+Pseudo Code:
+
+
+	String reverseString(String A) {
+
+		char[] charArray = A.toCharArray();
+		
+		int i = 0;
+		int j = charArray.length - 1; // faster because op on primitive
+	
+		while (i<j) {
+			
+			char temp = charArray[i];
+			charArray[i] = charArray[j];
+			charArray[j] = temp;
+			
+			i++;
+			j--;
+		}
+		
+		return charArray.toString();
+	}					  
+
+
+---------------------------------------------------------------------------
+Java 8 (Oracle-Jdk-1.8):
+
+	public class Solution {
+		public String solve(String A) {
+			char[] charArray = A.toCharArray();
+			
+			int i = 0;
+			int j = charArray.length - 1;
+
+			while(i<j) {
+				char temp = charArray[i];
+				charArray[i] = charArray[j];
+				charArray[j] = temp;
+
+				i++;            
+				j--;
+			}         
+
+			return new String(charArray);
+		}
+	}
+
+---------------------------------------------------------------------------
+Time complexity: 
+	- The code performs a reversal of the input string by from the begining
+		and the end of the character array.
+	- The number of swaps required is approximately half of the length of 
+		the input string.
+	- Therefore, the time complexity is proportional to the number of swaps, 
+		which = n/2 ~ O(N), since we drop the constant.
+		
+		T.C = O(N)
+	
+Space complexity: 
+	- In the code, character array is created. Where each character of 
+		string is stored in the character array.
+	
+	- Reversal of the character array is done in-place, meaning the 
+		original array is modified without using any extra place.
+
+	- Since, the additional space used in the code is the character array, 
+		which has size proportional to the the input.
+		
+		S.C = O(N)
+
+---------------------------------------------------------------------------

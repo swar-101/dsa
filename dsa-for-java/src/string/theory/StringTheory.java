@@ -1,4 +1,4 @@
-package strings;
+package string.theory;
 
 public class StringTheory {
 
@@ -54,11 +54,11 @@ public class StringTheory {
     *   Method: string.equals(anotherString);
     *
     *   Description:
-    *       1. The `equals()` method is used to verify if both the strings are equal
+    *       1. The `equals()` method is used to verify if both the string are equal
     *           or not
     *       2. The `equals()` method accepts another string as an argument and then
-    *           checks for equality of both the strings.
-    *       3. If both the strings are equal, true is returned else false is returned.
+    *           checks for equality of both the string.
+    *       3. If both the string are equal, true is returned else false is returned.
     *
     * */
 

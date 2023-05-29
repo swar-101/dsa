@@ -1,0 +1,66 @@
+Generate all subarrays:
+	
+	You are given an array A of N integers.
+	Return a 2D array consisting of all subarrays of the array.
+	
+	Note: The order of the subarrays in the resulting 2D array 
+	does not matter.
+
+
+	Problem Constraints:
+	
+		1 <= N <= 100
+		1 <= N <= 10^5
+		
+		
+	Input Format:
+		
+		First and the only argument A is an array of integers.
+		
+	Output Format:
+	
+		Return a 2D array of integers in any order.
+	
+---------------------------------------------------------------------------
+	Example Input1:
+		
+		A = [1, 2, 3]
+	
+	Example Output1:
+		
+		[[1], [1,2], [1,2,3], [2], [2,3], [3]]
+	
+	Example Input2:
+ 		
+		A = [5, 2, 1, 4]
+	
+	Example Output2:
+	
+		[[5], [5,2], [5,2,1], [5,2,1,4], [2], [2,1], [2,1,4], [1], [1,4], [4]]
+
+	
+---------------------------------------------------------------------------
+Brute Force Solution:
+
+
+---------------------------------------------------------------------------
+Dry Run:
+
+
+---------------------------------------------------------------------------
+Optimization:
+
+
+---------------------------------------------------------------------------
+Pseudo Code:
+
+
+---------------------------------------------------------------------------
+Time Complexity:
+
+
+---------------------------------------------------------------------------
+Space Complexity:
+
+
+---------------------------------------------------------------------------

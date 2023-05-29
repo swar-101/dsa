@@ -1,0 +1,170 @@
+1. Max sum subarray:
+    Find the maximum sum of contiguous non-empty subarray within an array A
+    of length N.
+
+    Problem constraints:
+            1 <=   N  <= 1e6
+        -1000 <= A[i] <= 1000
+
+    Input format:
+        The first and the only argument contains an integer array A.
+
+    Output format:
+        Return an integer representing the maximum possible sum of a
+        contiguous subarray.
+
+    Example Input 1:
+        A = [1, 2, 3, 4, -10]
+    Example Output 1:
+        10
+    "The subarray [1, 2, 3, 4] has the maximum possible sum of 10."
+
+    Example Input 2:
+        A = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+    Example Output 2:
+        6
+    "The subarray [4, -1, 2, 1, -5, 4] has the maximum possible sum of 6."
+
+---------------------------------------------------------------------------
+Brute Force Solution: For the given array A, find out all the possible
+                      subarrays and return the subarray that gives the
+                      maximum sum.
+
+
+---------------------------------------------------------------------------
+Dry Run: We iterate over all the elements of the array once to set
+         a start index to the subarrays that we want to generate and
+         also iterate over the same loop to set an end index to the
+         subarray. // ⛔
+
+        1st iteration:
+        The start index will be initialized from 0.
+        The end index will also be initialized from 0.
+
+        Therefore, A[start] to A[end] => A[0] to A[0] will give us a single
+        element.
+        Which, by all means is a 'non-empty subarray', as required in the
+        solution.
+
+        2nd iteration:
+        The next start index will be 0.
+        The next end index will be 1.
+
+        3rd iteration:
+        The next start index will be 0.
+        The next end index will be 2.
+
+        So basically,
+        For example, A = [1, 2, 3, 4, -10]
+                          |  |  |  |   |
+                indices:  0  1  2  3   4
+        _________________________________________________________
+            i   j   subarray               sum             max
+        _________________________________________________________
+            0   0   [1]                     1               1
+            0   1   [1, 2]                  3               3
+            0   2   [1, 2, 3]               6               6
+            0   3   [1, 2, 3, 4]            10              10
+            0   4   [1, 2, 3, 4, -10]       0               10
+
+            1   1   [2]                     2               10
+            1   2   [2, 3]                  5               10
+            1   3   [2, 3, 4]               9               10
+            1   4   [2, 3, 4, -10]         -1               10
+
+            2   2   [3]                     3               10
+            2   3   [3, 4]                  7               10
+            2   4   [3, 4, -10]            -3               10
+
+            3   3   [4]                     4               10
+            3   4   [4, -10]               -6               10
+
+            4   4   [-10]                  -10              10
+        _________________________________________________________
+
+
+        so the loop finding out all the sub array elements would be
+        a nested one because for every i we are incrementing j one-by-one.
+
+
+        so our loop is going to look something like..
+
+        for(i=0; i<N; i++) {
+            for(j=i; j<N; j++) {
+                // logic
+            }
+        }
+
+        Since, we only want the maximum sum of the subarray we are only
+        interested in calculating the sum of all sub arrays and return
+        the maximum sum.
+        Hence, we will need 2 variables
+        1. to carry out the sum
+        2. to return the max.
+
+        We initialize them as such,
+
+        max = INT_MIN
+        sum = 0
+
+        Q. Why do we initialize the variable `max = INT_MIN` ?
+        A: Can't initialize `max` to 0 because it will not return the
+           maximum sum in case when the maximum sum is negative, for e.g.
+           when max = -1.
+           By initializing max as `INT_MIN`, we are setting the initial
+           value of `max` to the lowest possible value than any possible
+           sum that could be stored in max.
+           This will ensure that the maximum sum that will be stored in
+           the `max` variable will be returned safely, even if it is the
+           lowest value possible for the maximum sum to exist.
+
+
+        Let's check this while we write the pseudo code.
+
+
+---------------------------------------------------------------------------
+Pseudo Code:
+
+    int maxSum(int[] A) {
+
+        for(i=0; i<N; i++) {
+            for(j=i; j<N; j++) {
+                // find the max
+                // 3 ways
+            }
+
+        }
+
+        return max;
+    }
+
+
+---------------------------------------------------------------------------
+
+Optimization:
+    The above solution will not fit the required problem constraints.
+    Number of iterations //✍✍✍✍
+    Write why and write the exact reason why.. what is 1e6 mathematically
+
+    Kadane's Algorithm:
+
+    define
+
+
+
+
+    dry run
+
+    A = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+          |  |   |  |   |  |  |   |  |
+          0  1   2  3   4  5  6   7  8
+
+    we skip the elements which make the sum negative
+
+    indices:    0   1   2   3   4   5   6   7   8
+
+    elements:  -2   1  -3   4  -1   2   1  -5   4
+
+    sum:        x   1   x   4   3   5   6   1   5
+
+    max:       min  1   1   s   6   6

@@ -1,5 +1,9 @@
-import strings.*;
+import array.TwoDimensionalArrayProblems;
+import string.problems.StringProblemsUsingCollection;
+import string.theory.StringTheory;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +15,7 @@ public class Main {
 
         StringProblemsUsingCollection s2 = new StringProblemsUsingCollection();
 
-        s2.reverse("Brother is cool");
+        s2.reverse("Brothers on the slide");
 
 //        StringProblems s2 = new StringProblems();
 //
@@ -27,5 +31,14 @@ public class Main {
 
 
         System.out.println("end of execution.");
+
+/*
+        TwoDimensionalArrayProblems twoDimensionalArrayProblems = new TwoDimensionalArrayProblems();
+        ArrayList<Integer> array = new ArrayList<>(List.of(1,3,5,6));
+        twoDimensionalArrayProblems.generateAllSubarrays(array);
+*/
+
     }
+
+
 }

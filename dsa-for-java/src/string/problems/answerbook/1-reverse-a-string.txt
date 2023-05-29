@@ -43,7 +43,7 @@ Dry Run:
 	i = 1   swap 1 with 5  r e n t h a p 
 	i = 2   swap 2 with 4  r e h t n a p
 	
-	when i is less than the last value,
+	when 'i' is less than the last value,
 	the String gets reversed.
 	
 	We essentially iterate over half of the string to get this.
