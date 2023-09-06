@@ -1,0 +1,157 @@
+Kadane's Algorithm:
+
+---------------------------------------------------------------------------
+History:
+
+    The maximum subarray problem was proposed by Ulf Grenander in 1977.
+    This proposal is related to image analysis and pattern recognition.
+
+    Michael Shamos heard about this problem, he devised an O(nlog n)
+    `divide-and-conquer algorithm` for it.
+
+    Soon after, Shamos described the one-dimensional problem and its
+    history at a seminar at Carnegie Mellon University.
+
+    Jay Kadane who attended the seminar, designed within a minute an
+    O(N)-time algorithm.
+
+
+---------------------------------------------------------------------------
+Applications:
+
+    Maximum subarray problems arise in many fields such as genomic
+    sequence analysis and computer vision.
+
+    Genomic sequence analysis employs maximum subarray algorithms to
+    identify important segments of protein sequences.
+
+    In computer vision, maximum-subarray algorithms are used on bitmap
+    images to detect the brightest area in an image.
+
+
+---------------------------------------------------------------------------
+Algorithm:
+
+    Kadane's algorithm is an iterative dynamic programming problem.
+
+    It is often used to solve 'finite-dimensional nonlinear
+    constrained global optimal control problems'.
+
+    Which basically means, this algorithm is frequently employed to
+    address problems that involve -
+    1. Finding best solutions for controlling systems,
+        e.g Temperature control system,
+            Robotic arm control system,
+            Autonomous vehicle control system,
+            Flight control system etc.
+    2. that have multiple variables and complex relationships,
+    3. with certain limitations and constraints.
+
+    In Kadane's algorithm, we look for all positive contiguous subarrays
+    of the array, keeping track of global maximum.
+
+    Whenever we get a `positive-sub-array-sum`, we compare the sum to
+    `global_max` and update the `global-max`,
+    whenever we get a `negative-sub-array-sum`, we have to reset the
+    sum to zero, because we will never take that element for our next
+    subarrays.
+
+    1. Initialize: local_max = 0 global_max = INT_MIN    // ensure 🖊
+    2. For each element:
+        1. local_max = local_max + a[i]
+        2. if(local_max > global_max) set global_max = local_max
+        3. if(local_max < 0) set local_max = 0
+    3. Return the global_max.
+
+    Let's understand the above algorithm using an example.
+
+        For example, we have an array
+
+         0  1  2   3  4
+         |  |  |   |  |
+        [2,-4, 3, -1, 2]
+
+        at first, local_max = global_max = INT_MIN
+
+        Now, let's loop through each element.
+
+        when i=0, a[0]=2: local_max + 2 = 2.
+        Since, `local_max` is greater than `global max`,
+        so set `global_max = 2`.
+
+        when i=1, a[1]=-4: local_max + (-4) = 2 + (-4) = -2.
+        Since `local_max` is equal to -2 which is lesser than 0.
+        We will set `local_max` to 0.
+        The `global_max` will still be 2.
+
+        when i=2, a[2]=3: local_max + a[2] = 0 + 3 = 3.
+        Since, local_max = 3 > global_max = 2.
+        We update the global_max = 3.
+
+        when i=3, a[3]=-1: local_max + a[3] = 3 + (-1) = 2.
+        `local_max` becomes 2.
+        Since, `global_max` > `local_max`,
+        We don't update `global_max`, it still remains 3.
+
+        when i=4, a[4]=2: local_max + a[4] = 2 + 2 = 4.
+        `local_max` is now 4.
+        Since, `local_max` > `global_max`,
+        we update the `global_max`, and set it to 4.
+
+        Thus, we get maximum subarray as 4.
+
+            Note: The above algorithm will fail for a case, when
+                  there are only negative elements in the array,
+                  because our global max is already set to 0.
+                  So, to handle that case we have to modify our
+                  algorithm. We will add current element to the
+                  previous subarray only if it results in a
+                  greater sum, else we will start a new subarray
+                  from the element.
+
+        Approach:
+
+            Initialize: local_max = 0 ; global_max = MAX_INT
+
+            For each element we will follow these steps:
+            1. if (a[i] <= local_max + a[i]) : local_max = local_max + a[i]
+
+            2. else local_max = a[i]
+
+            3. global_max = max(global_max, local_max)
+
+            `global_max` is the maximum sum required.
+
+            Analysing the above approach, we can write a recursive
+            formulation for Kadane's algorithm.
+
+            local_max[i] = max( A[i], A[i] + local_max[i-1])
+
+            resulting answer will be the maximum of all values of
+            local_max[i].
+
+            Thus we can see that Kadane's Algorithm has optimal
+            substructure property, which means that for calculating a
+            maximum subarray ending at a particular position, we have to
+            use the solution of a smaller sub-problem (The maximum sum
+            array ending at the previous position). Thus we can say that
+            Kadane's Algorithm is a dynamic programming algorithm.
+
+---------------------------------------------------------------------------
+
+Java code for Kadane's Algorithm:
+
+
+class KadanesAlgorithm {
+
+    public static void main() {
+
+        int global_max =
+        int local_max =
+
+
+
+    }
+}
+
+

@@ -1,0 +1,42 @@
+
+Sieve of Eratosthenes:
+
+1. We go to each number one by one
+2. We check if the current number is divisible by any number that is smaller than it.
+3. If yes, we will cancel this number out, also cancel all possible multiples of the current number.
+4. We will store the number that is not divisible at all.
+5. we won't include the case where the number is divisible by itself or by 1
+
+
+
+bool P[N+1] = true; // we declare an array of booleans upto number N
+                    // assuming all numbers are prime until we find them
+
+P[0] = false; // we initialize index 0 as false because it is not prime
+P[1] = false; // we initialize index 1 as false because it is not prime
+
+// we don't have to check for all values, we need only until the square of the number
+// because hmm.. need to think what should I write..
+
+1  2  3  4  5  6  7  8  9  10
+11 12 13 14 15 16 17 18 19 20
+
+int[] primeNumberList() {
+
+    bool[] primeNumbers = [];
+    primeNumbers.set(true);
+
+    for(int i=2; i*i<=N; i++) {
+        if(P[i]== true) {
+            for(j=i*i; j<=N; j=j+i) {
+                 P[j] = false;
+            }
+        }
+    }
+    for(int i=2; i<=N; i++) {
+        if(P[i] == true) {
+
+        }
+    }
+}
+

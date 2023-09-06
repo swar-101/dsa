@@ -1,5 +1,5 @@
-import array.TwoDimensionalArrayProblems;
-import string.problems.StringProblemsUsingCollection;
+import array.problem.code.*;
+import string.problem.code.StringProblemsUsingCollection;
 import string.theory.StringTheory;
 
 import java.util.ArrayList;
@@ -29,14 +29,31 @@ public class Main {
 //        System.out.println(s3.toLowercase(new ArrayList<>(Arrays.asList('A','S','C','i','i'))));
 //        System.out.println(s3.longestPalindrome("abax"));
 
+        TwoDimensionalArrayProblem twoDimensionalArrayProblem =
+                new TwoDimensionalArrayProblem();
+
+        twoDimensionalArrayProblem.sumOfEvenIndices(new ArrayList<>(List.of(2, 1, 8, 3, 9)),
+                new ArrayList<>(
+                        List.of( new ArrayList<>(List.of(0,3)),
+                                new ArrayList<>(List.of(0,3))
+                        )
+                )
+        );
+        System.out.println();
 
         System.out.println("end of execution.");
 
+
+
+
+
 /*
-        TwoDimensionalArrayProblems twoDimensionalArrayProblems = new TwoDimensionalArrayProblems();
+        TwoDimensionalArrayProblem twoDimensionalArrayProblems = new TwoDimensionalArrayProblem();
         ArrayList<Integer> array = new ArrayList<>(List.of(1,3,5,6));
         twoDimensionalArrayProblems.generateAllSubarrays(array);
 */
+
+
 
     }
 

@@ -1,0 +1,87 @@
+1, 5, 7, 9, 2
+
+1  2  3  4  5
+
+
+
+
+i = 1
+
+sum = A[i] * i 
+
+max
+
+
+
+	n		s
+-----------------
+1	1		1		9
+
+2	5		2		7	
+	
+3	7 		5		5
+
+4	9 		7		2
+
+5	2		9		1
+
+------------------
+
+1 10 21 4 10 = 46
+
+
+1 4 15 28 45 = 93
+
+9 14 15 8 5  = 
+
+
+
+------------------
+
+
+
+public class Solution {
+    public Long solve(ArrayList<Integer> A) {
+        
+        // we sort the array
+        
+        Long n = (long)A.size();
+        Long max = -1;
+        
+        for(long i = 0; i < n; i++) {
+            
+            Long minIndex = i;
+            
+            for(long j = i+1; j < n; j++) {
+                if (A.get(j) < A.get(minIndex)) {
+                    minIndex = j;
+                }
+            }
+            
+            Integer temp = A.get(minIndex);
+            A.set(minIndex, A.get(i));
+            A.set(i, temp);
+            
+            
+        }
+        
+        // the re-arranged array is now maximized
+        
+        // 1, 5, 5, 6, 7
+        
+        for(long i = 1; i < n+1; i++) {
+            max = A.get(i) * i;            
+        }
+        
+        return max;
+    }
+}
+
+
+
+
+
+
+
+
+
