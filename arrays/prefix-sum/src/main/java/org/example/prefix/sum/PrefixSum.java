@@ -1,4 +1,4 @@
-package org.example.algorithm;
+package org.example.prefix.sum;
 
 import java.util.Arrays;
 

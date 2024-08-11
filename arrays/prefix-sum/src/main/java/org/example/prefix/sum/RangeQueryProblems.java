@@ -1,8 +1,8 @@
-package org.example.algorithm.rangequery;
+package org.example.prefix.sum;
 
 import java.util.Arrays;
 
-public class RangeQuery {
+public class RangeQueryProblems {
 
     public static int[] returnRangeQuerySums(int[] a, int[][] queries) {
     // Edge cases:

@@ -1,4 +1,4 @@
-package org.example.algorithm.evenrange;
+package org.example.prefix.sum;
 
 import java.util.ArrayList;
 import java.util.Arrays;

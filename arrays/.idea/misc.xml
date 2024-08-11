@@ -4,8 +4,8 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/kadanes-algorith/pom.xml" />
+        <option value="$PROJECT_DIR$/prefix-sum/pom.xml" />
+        <option value="$PROJECT_DIR$/kadanes-algorithm/pom.xml" />
       </list>
     </option>
   </component>
