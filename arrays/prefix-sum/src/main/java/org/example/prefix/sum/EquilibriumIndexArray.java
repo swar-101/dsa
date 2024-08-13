@@ -3,16 +3,21 @@ package org.example.prefix.sum;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * The EquilibriumIndexArray class provides methods to find the equilibrium index of an array.
+ *
+ * <p>An equilibrium index of an array is an index such that the sum of elements at lower indices
+ * is equal to the sum of elements at higher indices. If no such index exists, the methods return -1.
+ *
+ * <p>This class includes both brute-force and optimal solutions, supporting both ArrayList and
+ * primitive array inputs.
+ *
+ * <p>The brute-force method checks each index by calculating the sum of elements to the left and right,
+ * resulting in a time complexity of O(n^2). The optimal method, which is yet to be implemented,
+ * will use prefix sums to achieve O(n) time complexity.
+ */
 public class EquilibriumIndexArray {
 
-    /**
-     * This method checks if A is an Equilibrium Index Array.
-     * It returns the Equilibrium Index if it is an Equilibrium Index Array.
-     * It returns -1 if it is not an Equilibrium Index Array.
-     *
-     * @param A input array
-     * @return return the Equilibrium Index if A is an Equilibrium Index Array
-     */
     public static int isEquilibriumIndexArrayWithBruteForce(ArrayList<Integer> A) {
         for (int i = 0; i < A.size(); i++) {
             int leftSum = 0;
@@ -26,11 +31,9 @@ public class EquilibriumIndexArray {
             }
 
             if (leftSum == rightSum) {
-                System.out.println("The equilibrium index is: " + i);
                 return i;
             }
         }
-        System.out.println("The input array is not an Equilibrium Index Array");
         return -1;
     }
 
@@ -52,22 +55,12 @@ public class EquilibriumIndexArray {
             }
 
             if (leftSum == rightSum) {
-                System.out.println("The equilibrium index is: " + i);
                 return i;
             }
         }
-        System.out.println("The input array is not an Equilibrium Index Array");
         return -1;
     }
 
-    /**
-     * This method checks if array A is an Equilibrium Index Array or not.
-     * An Equilibrium Index Array is an array that has an index, whose value is equal to the sum of the
-     * values of its lower indices and higher indices.
-     *
-     * @param A input array
-     * @return returns the Equilibrium Index if it is an Equilibrium Index Array or returns -1 if it is not.
-     */
     public static int isEquilibriumIndexArrayUsingPrefixSum(ArrayList<Integer> A) {
         // Todo: Complete this!!
         return 1;
