@@ -1,4 +1,4 @@
-package org.example.prefix.sum;
+package org.example.prefix.sum.equilibriumIndexArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
